@@ -14,6 +14,12 @@ S3のバケットの状況を確認するSPAをvuejsとflaskで作る
         npm run dev
         ```
     - [ ] flask
+        ```
+        mkdir -p backend/python
+        cd backend/python
+        pipenv install
+        pipenv install Flask
+        ```
 - [ ] デプロイできるようにする
     - [ ] docker-compose
     - [ ] nginx
