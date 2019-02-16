@@ -5,21 +5,22 @@ S3のバケットの状況を確認するSPAをvuejsとflaskで作る
 
 ## TODO
 
-- [ ] プロジェクトの雛形を作る
-    - [ ] vue
+- [x] プロジェクトの雛形を作る
+    - [x] vue
         ```
         npm install -g vue-cli
         vue init webpack vue
         npm install
         npm run dev
         ```
-    - [ ] flask
+    - [x] flask
         ```
         mkdir -p backend/python
         cd backend/python
         pipenv install
         pipenv install Flask
         ```
+    - [ ] つなぎこみ
 - [ ] デプロイできるようにする
     - [ ] docker-compose
     - [ ] nginx
