@@ -20,10 +20,17 @@ S3のバケットの状況を確認するSPAをvuejsとflaskで作る
         pipenv install
         pipenv install Flask
         ```
-    - [ ] つなぎこみ
+    - [x] つなぎこみ
+        https://qiita.com/mitch0807/items/2a93d93adbf6b5fc445c
 - [ ] デプロイできるようにする
     - [ ] docker-compose
     - [ ] nginx
 - [ ] s3に接続する
 - [ ] ファイル一覧を取得する
 - [ ] vueでテーブル?表示する
+
+## Reference
+* [Vue.js(vue-cli)とFlaskを使って簡易アプリを作成する【前半 - フロントエンド編】](https://qiita.com/mitch0807/items/2a93d93adbf6b5fc445c)
+* [Vue.js(vue-cli)とFlaskを使って簡易アプリを作成する【後半 - サーバーサイド編】 - Qiita](https://qiita.com/mitch0807/items/c2e84beee6c9a61e86cd)
+* [Vue.jsとFlaskのDocker環境を構築してみた - Qiita](https://qiita.com/kouchanne/items/417bad58633cc4262012)
+
