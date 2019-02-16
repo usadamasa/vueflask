@@ -9,8 +9,9 @@ S3のバケットの状況を確認するSPAをvuejsとflaskで作る
     - [ ] vue
         ```
         npm install -g vue-cli
-        vue init webpack frontend
+        vue init webpack vue
         npm install
+        npm run dev
         ```
     - [ ] flask
 - [ ] デプロイできるようにする
