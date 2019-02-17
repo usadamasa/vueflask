@@ -2,7 +2,7 @@
 FROM node:9.11.1-alpine as build-stage
 WORKDIR /app
 # vue.jsのProjectをコピーする
-COPY ./vue/* ./   
+COPY ./vue /app
 RUN npm install
 # npm run build で distファイルが生成されるscriptがpackage.jsonにある前提
 RUN npm run build

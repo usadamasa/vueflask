@@ -12,10 +12,6 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python3 get-pip.py
 RUN pip install pipenv
 
-# Pipfile: host -> container
-# COPY Pipfile ./
-# COPY Pipfile.lock ./
-
 RUN pipenv install --system
 
 CMD ["uwsgi","--ini","/var/www/uwsgi.ini"]

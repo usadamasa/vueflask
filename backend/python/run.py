@@ -3,8 +3,8 @@ from random import *
 
 
 app = Flask(__name__,
-            static_folder = "./frontend/dist/static",
-            template_folder = "./frontend/dist")
+            static_folder = "../../frontend/vue/dist/static",
+            template_folder = "../../frontend/vue/dist")
 
 
 @app.route('/api/random')
