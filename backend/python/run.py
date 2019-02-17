@@ -1,16 +1,27 @@
 from flask import Flask, render_template, jsonify
-from random import *
+from random import randint
+
+
+from vueflask.core.aws.s3 import S3Client
 
 
 app = Flask(__name__,
-            static_folder = "../../frontend/dist/static",
-            template_folder = "../../frontend/dist")
+            static_folder="../../frontend/dist/static",
+            template_folder="../../frontend/dist")
 
 
 @app.route('/api/random')
 def random_number():
     response = {
         'randomNumber': randint(1, 100)
+    }
+    return jsonify(response)
+
+@app.route('/api/list')
+def list():
+    s3 = S3Client(profile = 'vueflasksample', bucket = 'vueflasksample')
+    response = {
+        'lastModified': s3.getList('hoge')
     }
     return jsonify(response)
 
