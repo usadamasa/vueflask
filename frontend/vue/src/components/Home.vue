@@ -1,9 +1,18 @@
 <template>
-  <div>
+  <div id='app'>
     <p>Home page</p>
-    <p>Random number from backend: {{ randomNumber }}</p>
-    <button @click="getRandom">New random number</button>
-    <p>object from backend: {{ lastModified }}</p>
+    <div>
+      <form@submit.prevent="getS3ObjectList">
+          <p>s3PathPrefix:<input v-model="newEvent.prefix"
+           type="text" placeholder="prefix" value=''/></p>
+          <button type="submit">search</button>
+      </form>
+      <ul>
+        <li v-for="item in files">
+          {{ item }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -13,32 +22,22 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      randomNumber: 0,
-      lastModified: ""
+      newEvent: {
+        prefix: ''
+      },
+      files: []
     }
   },
   methods: {
-    getRandom () {
-      this.randomNumber = this.getRandomFromBackend()
+    getS3ObjectList: function (e) {
+      this.files = this.getS3ObjectListFromBackend(this.newEvent.prefix)
     },
-    getRandomFromBackend () {
-      const path = `http://localhost:5000/api/random`
-      axios.get(path)
+    getS3ObjectListFromBackend (prefix) {
+      const requestUrl = `http://localhost:5000/api/list?prefix=` + prefix
+      axios.get(requestUrl)
         .then(response => {
-          this.randomNumber = response.data.randomNumber
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    },
-    getS3Object () {
-      this.lastModified = this.getS3ObjectFromBackend()
-    },
-    getS3ObjectFromBackend () {
-      const path = `http://localhost:5000/api/list`
-      axios.get(path)
-        .then(response => {
-          this.lastModified = response.data.lastModified
+          var files = response.data.files
+          this.files = files
         })
         .catch(error => {
           console.log(error)
@@ -46,8 +45,7 @@ export default {
     }
   },
   created () {
-    this.getRandom()
-    this.getS3Object()
+    this.getS3ObjectList('')
   }
 }
 </script>

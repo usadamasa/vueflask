@@ -10,6 +10,12 @@ init_frontend:
 		&& npm install \
 		&& npm run build
 
+.PHONY: build_frontend
+build_frontend:
+	cd frontend/vue \
+		&& npm run build
+
+
 .PHONY: build
 build: init_frontend init_backend
 
