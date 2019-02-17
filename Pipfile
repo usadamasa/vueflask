@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 flask = "*"
 uwsgi = "*"
+"autopep8" = "*"
+pylint = "*"
 
 [dev-packages]
 

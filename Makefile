@@ -2,8 +2,7 @@ BASEDIR = $(CURDIR)
 
 .PHONY: init_backend
 init_backend:
-	cd backend/python \
-		&& CC=gcc pipenv install \
+	CC=gcc pipenv install
 
 .PHONY: init_frontend
 init_frontend:
@@ -16,5 +15,4 @@ build: init_frontend init_backend
 
 .PHONY: run
 run:
-	cd backend/python \
-		&& pipenv shell FLASK_APP=run.py FLASK_DEBUG=1 flask run
+	pipenv shell FLASK_APP=backend/python/run.py FLASK_DEBUG=1 flask run
