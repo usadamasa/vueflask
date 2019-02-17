@@ -22,8 +22,9 @@ S3のバケットの状況を確認するSPAをvuejsとflaskで作る
         ```
     - [x] つなぎこみ
 - [ ] デプロイできるようにする
-    - [ ] docker-compose
-    - [ ] nginx
+    - [x] docker-compose
+    - [x] nginx
+    - [ ] 動作確認
 - [ ] s3に接続する
 - [ ] ファイル一覧を取得する
 - [ ] vueでテーブル?表示する

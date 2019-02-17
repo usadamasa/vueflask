@@ -13,16 +13,15 @@ FROM nginx:1.13.12-alpine as production-stage
 # contentsを配置するディレクトリを作成する
 COPY nginx/work/ /home/work
 RUN mkdir -p /var/log/nginx/log\
-    && mkdir /home/www\
-    && mkdir /home/www/contents
+    && mkdir -p /usr/share/nginx/html
 
 # ビルド環境で構築されたdistディレクトリをnignxの該当のディレクトリに配置する
-COPY --from=build-stage /app/dist /home/www/contents
+COPY --from=build-stage /dist /usr/share/nginx/html
 
 # nginx.confファイルを配置する
 WORKDIR /home/work
-RUN rm -f /etc/nginx/conf.d/*.conf\
-    && rm -f /etc/nginx/nginx.conf\
+RUN rm -f /etc/nginx/conf.d/*.conf \
+    && rm -f /etc/nginx/nginx.conf \
     && cp -i *.conf /etc/nginx
 
 EXPOSE 80 443

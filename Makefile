@@ -11,8 +11,8 @@ init_frontend:
 		&& npm install \
 		&& npm run build
 
-.PHONY: init
-init: init_frontend init_backend
+.PHONY: build
+build: init_frontend init_backend
 
 .PHONY: run
 run:
